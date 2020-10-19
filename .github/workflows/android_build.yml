@@ -22,7 +22,7 @@ jobs:
         run: ./gradlew assemble
 
       - name: Upload APK
-        uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v2
           with:
             name: Package
-              path: build/libs
+            path: build/libs
