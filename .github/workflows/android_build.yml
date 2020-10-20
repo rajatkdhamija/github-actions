@@ -33,3 +33,4 @@ jobs:
           token: ${{ secrets.SLACK_BOT_USER_OAUTH_ACCESS_TOKEN }}
           path: app/build/outputs/apk/debug/app-debug.apk
           channel: "#githubactions"
+          title: "Github actions release apk"
