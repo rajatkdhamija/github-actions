@@ -11,7 +11,7 @@ jobs:
         uses: archive/github-actions-slack@v1.0.4
         with:
           slack-bot-user-oauth-access-token: ${{ secrets.SLACK_BOT_USER_OAUTH_ACCESS_TOKEN }}
-          slack-channel: Github Actions
+          slack-channel: github-actions
           slack-text: Hello! Something is burning! Or not...
           slack-optional-icon_emoji: ":fire:"
 
