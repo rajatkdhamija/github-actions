@@ -42,16 +42,16 @@ jobs:
 #             payload-file-path: "./payload-slack-content.json"
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          path: /app/build/outputs/apk/debug/app-debug.apk
+          path: ${{ github.workspace }}/app/build/outputs/apk/debug/app-debug.apk
           channel: "#test-github-action"
-          # slack-message: "GitHub build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
-          # run: |  
-          # curl -F file=@app-debug.apk -F "initial_comment=Github Action Release APK" -F channels=C0R7MFNJD -H "Authorization: Bearer xoxp-123456789" https://slack.com/api/files.upload
+          slack-message: "GitHub build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
+          run: |  
+          curl -F file=@app-debug.apk -F "initial_comment=Github Action Release APK" -F channels=C0R7MFNJD -H "Authorization: Bearer xoxp-123456789" https://slack.com/api/files.upload
 
-#       - name: Test file upload
-#         run: >-
-#           curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' https://hooks.slack.com/services/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
-# #       - name: Upload to slack step
+      - name: Test file upload
+        run: >-
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' https://hooks.slack.com/services/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
+#       - name: Upload to slack step
 #         uses: adrey/slack-file-upload-action@master
 #         with:
 #           token: ${{ secrets.SLACK_WEBHOOK_URL }}
