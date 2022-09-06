@@ -42,12 +42,11 @@ jobs:
 #             payload-file-path: "./payload-slack-content.json"
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          path: ${{ github.workspace }}/app/build/outputs/apk/debug/app-debug.apk
+          path: /app/build/outputs/apk/debug/app-debug.apk
           channel: "#test-github-action"
-          slack-message: "GitHub build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
-          run: |  
-          curl -F file=@app-debug.apk -F "initial_comment=Github Action Release APK" -F channels=C0R7MFNJD -H "Authorization: Bearer xoxp-123456789" https://slack.com/api/files.upload
-
+          # slack-message: "GitHub build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
+          # run: |  
+          # curl -F file=@app-debug.apk -F "initial_comment=Github Action Release APK" -F channels=C0R7MFNJD -H "Authorization: Bearer xoxp-123456789" https://slack.com/api/files.upload
 
       - name: Test file upload
         run: >-
