@@ -42,7 +42,7 @@ jobs:
 #             payload-file-path: "./payload-slack-content.json"
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          path: app/build/outputs/apk/debug/app-debug.apk
+          path: ${{ github.workspace }}/app/build/outputs/apk/debug/app-debug.apk
           channel: "#test-github-action"
 
 #       - name: Upload to slack step
