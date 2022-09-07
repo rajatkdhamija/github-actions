@@ -8,7 +8,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64, gpu]
 
     steps:
       - uses: actions/checkout@v1
@@ -37,4 +37,4 @@ jobs:
           token: ${{ secrets.SLACK_BOT_USER_OAUTH_ACCESS_TOKEN }}
           path: app/build/outputs/apk/debug/app-debug.apk
           channel: "#test-github-action"
-          title: "Github actions release apk"
+          title: "Github Actions Android Release APK"
